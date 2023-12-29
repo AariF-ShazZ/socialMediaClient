@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { AppBar, Badge, InputBase, Toolbar, Typography,Avatar,Box } from '@mui/material'
+import { AppBar, Badge, InputBase, Toolbar, Typography,Avatar,Box,MenuItem, Menu } from '@mui/material'
 import Instagram from "@mui/icons-material/Instagram"
 import Mail from '@mui/icons-material/Mail';
 import Notifications from '@mui/icons-material/Notifications';
+import { useState } from 'react';
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between"
@@ -31,6 +32,7 @@ const UserBox = styled(Box)(({ theme }) => ({
   }
 }))
 const Navbar = () => {
+  const [open,setOpen] = useState(false)
   return (
     <AppBar position='sticky'>
       <StyledToolbar>
@@ -44,13 +46,32 @@ const Navbar = () => {
           <Badge badgeContent={4} color={"error"}>
             <Notifications/>
           </Badge>
-          <Avatar sx={{width:30,height:30}} alt="Remy Sharp" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" />
+          <Avatar onClick={(e)=> setOpen(true)} sx={{width:30,height:30}} alt="Remy Sharp" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" />
         </Icons>
-        <UserBox>
-        <Avatar sx={{width:30,height:30}} alt="Remy Sharp" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" />
+        <UserBox onClick={(e)=> setOpen(true)}>
+        <Avatar  sx={{width:30,height:30}} alt="Remy Sharp" src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"  />
         <Typography variant='span'>Aarif</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        onClose={(e)=> setOpen(false)}
+        open={open}
+        
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+      >
+        <MenuItem >Profile</MenuItem>
+        <MenuItem >My account</MenuItem>
+        <MenuItem >Logout</MenuItem>
+      </Menu>
     </AppBar>
   )
 }

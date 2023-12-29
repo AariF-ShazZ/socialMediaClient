@@ -1,9 +1,22 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import React from 'react';
+import { Box, Card, CardHeader, CardMedia, CardContent, CardActions, IconButton, Typography, Avatar,Checkbox } from '@mui/material';
+import { red } from '@mui/material/colors';
+import ShareIcon from '@mui/icons-material/Share';
+import {MoreVert,FavoriteBorder,Favorite} from '@mui/icons-material/';
+import Post from '../Post/Post';
+
 
 const Feed = () => {
   return (
-    <Box bgcolor={"pink"} flex={4} p={2}>Feed</Box>
+    <Box flex={4} p={2}>
+     <Post/>
+     <Post/>
+     <Post/>
+     <Post/>
+     <Post/>
+     <Post/>
+     <Post/>
+    </Box>
   )
 }
 
