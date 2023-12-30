@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Feed from './Components/Feed/Feed';
 import Navbar from './Components/Navbar/Navbar';
@@ -20,17 +21,24 @@ const theme = createTheme({
 });
 
 function App() {
+  const [mode, setMode] = useState("light")
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: mode
+    }
+  })
   return (
-    <Box>
-      <ThemeProvider theme={theme}>
-      <Navbar/>
-      <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
-        <Sidebar />
-        <Feed />
-        <Rightbar />
-      </Stack>
-      </ThemeProvider>
-    </Box>
+    <ThemeProvider theme={darkTheme}>
+      <Box bgcolor={"background.default"} color={"text.primary"}>
+        {/* <Navbar /> */}
+        <Stack direction={"row"} spacing={2} justifyContent={"space-between"}>
+          <Sidebar setMode={setMode} mode={mode} />
+          <Feed />
+          <Rightbar />
+        </Stack>
+      </Box>
+    </ThemeProvider>
   );
 }
 
