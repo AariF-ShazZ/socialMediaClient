@@ -31,6 +31,7 @@ const UserBox = styled(Box)(({ theme }) => ({
     display:"none"
   }
 }))
+
 const Navbar = () => {
   const [open,setOpen] = useState(false)
   return (

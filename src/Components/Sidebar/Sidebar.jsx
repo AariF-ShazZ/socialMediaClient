@@ -114,18 +114,16 @@ const Sidebar = ({ mode, setMode }) => {
         <MenuItem >My account</MenuItem>
         <MenuItem >Logout</MenuItem>
       </Menu>
-          {/* <ListItem disablePadding>
+          <ListItem disablePadding>
             <ListItemButton component="a" href='#'>
               <ListItemIcon>
                 {
                   mode === "light" ? <LightModeIcon /> : <ModeNightIcon />
                 }
-
-
               </ListItemIcon>
               <Switch onChange={e => setMode(mode === "light" ? "dark" : "light")} />
             </ListItemButton>
-          </ListItem> */}
+          </ListItem>
         </List>
       </Box>
 
